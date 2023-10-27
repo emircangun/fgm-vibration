@@ -7,7 +7,7 @@ from train_and_evaluate import *
 
 
 st.set_page_config(layout="centered")
-st.markdown("<h1 style='text-align: center; color: white;'>Lambda Prediction</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: white;'>Frequency Prediction</h1>", unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -42,4 +42,4 @@ if clicked:
     out = test_examples(model, [inp])[0]
 
     # st.write(f"Predicted lambda: {out}")
-    st.markdown(f"<h3 style='text-align: center; color: white;'>Predicted lambda:  {out.item()}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='text-align: center; color: white;'>Predicted Frequency:  {out.item()}</h3>", unsafe_allow_html=True)
