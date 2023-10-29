@@ -8,10 +8,11 @@ EXP = "1"
 DATA_FILE = os.path.join(os.getcwd(), "data", "non-local-data.csv")
 MODEL_WEIGHTS_FILE = os.path.join(os.getcwd(), "model_weights", f"weights_{EXP}.pt")
 K_NORMS_FILE = os.path.join(os.getcwd(), "model_weights", f"k_norm_values_{EXP}.np")
+LOSS_FILE = os.path.join(os.getcwd(), "losses", f"train_and_eval_loss_{EXP}.png")
 
 # MODEL PARAMETERS
 HIDDEN_SIZES    = [25, 25, 25]
-# HIDDEN_SIZES    = [30, 30]
+# HIDDEN_SIZES    = [30, 30, 30]
 ACTIVATION      = nn.ReLU
 DROPOUT_RATE    = 0.1
 
@@ -22,9 +23,9 @@ OPTIMIZER_PARAMS = {
 }
 
 # TRAIN PARAMETERS
-EPOCHS = 200
+EPOCHS = 100
 TRAIN_TEST_SPLIT_RATIO = 0.01
-BATCH_SIZE = 64
+BATCH_SIZE = 128
 
 
 # DATA MAPPINGS

@@ -28,12 +28,13 @@ def evaluate(model, test_dataloader):
 
 
 def train(model, optimizer, criterion, training_dataloader, test_dataloader, n_epochs=150):
-    model.train()
-
-    losses = []
+    train_losses = []
+    eval_losses = []
     for epoch in range(n_epochs):
         cur_loss = 0
         total_len = 0
+        
+        model.train()
         for data, target in training_dataloader:  # Iterate through your data
             optimizer.zero_grad()
             output = model(data)
@@ -44,7 +45,8 @@ def train(model, optimizer, criterion, training_dataloader, test_dataloader, n_e
             cur_loss += loss
             total_len += data.shape[0]
         
-        losses.append(cur_loss/total_len)
+        train_losses.append((cur_loss/total_len).item())
+        eval_losses.append(evaluate(model, test_dataloader))
 
         if epoch % 10 == 0 or epoch == n_epochs - 1:
             test_mse = evaluate(model, test_dataloader)
@@ -53,7 +55,7 @@ def train(model, optimizer, criterion, training_dataloader, test_dataloader, n_e
         if epoch == n_epochs - 1:
             save_model(model, config.MODEL_WEIGHTS_FILE)
 
-    return losses
+    return train_losses, eval_losses
 
 
 def test_examples(model, examples):

@@ -33,7 +33,7 @@ with col4:
     k_value = st.number_input("k value", value=0.0)
     
 
-clicked = st.button('Predict Lambda')
+clicked = st.button('Predict Frequency')
 
 # prediction logic
 model = gui_load_model(MODEL_WEIGHTS_FILE)

@@ -5,6 +5,7 @@ import torch
 from dataset import *
 from train_and_evaluate import *
 from model import NeuralNetwork
+from plot import *
 import config
 
 
@@ -27,13 +28,14 @@ if __name__ == '__main__':
 
     criterion = nn.MSELoss()
 
-    train_losses = train(model,
-                         optimizer,
-                         criterion,
-                         training_dataloader,
-                         test_dataloader,
-                         n_epochs=config.EPOCHS)
+    train_losses, eval_losses = train(model,
+                                    optimizer,
+                                    criterion,
+                                    training_dataloader,
+                                    test_dataloader,
+                                    n_epochs=config.EPOCHS)
 
+    plot_losses(train_losses, eval_losses)
 
     # some examples to validate
     examples = [
