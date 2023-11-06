@@ -14,7 +14,7 @@ LOSS_FILE = os.path.join(os.getcwd(), "losses", f"train_and_eval_loss_{EXP}.png"
 # HIDDEN_SIZES    = [25, 25, 25]
 HIDDEN_SIZES    = [35,35,35]
 ACTIVATION      = nn.ReLU
-DROPOUT_RATE    = 0.0
+DROPOUT_RATE    = 0.1
 
 # OPTIMIZER PARAMETERS
 OPTIMIZER_PARAMS = {
