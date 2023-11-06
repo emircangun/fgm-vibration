@@ -9,27 +9,34 @@ input_size = len(METHOD_DICT.keys()) + len(BEAM_TYPE_DICT.keys()) + len(L_H_DICT
 
 class NeuralNetwork(nn.Module):
     def __init__(self,
-                 hidden_sizes=[20, 20],
-                #  weight_init=torch.nn.init.xavier_uniform_,
+                 hidden_sizes=[25, 25, 25],
+                #  weight_init=init.xavier_uniform_,
                  activation=nn.ReLU,
                  dropout_rate=0.1):
         super(NeuralNetwork, self).__init__()
+
+        def custom_init(layer):
+            if isinstance(layer, nn.Linear):
+                torch.nn.init.xavier_uniform_(layer.weight)
 
         layers = []
         
         # input layer
         layers.append(nn.Linear(input_size, hidden_sizes[0]))
+        custom_init(layers[-1])
         layers.append(activation())
         layers.append(nn.Dropout(dropout_rate))
         
         # hidden layers
         for i in range(1, len(hidden_sizes)):
             layers.append(nn.Linear(hidden_sizes[i - 1], hidden_sizes[i]))
+            custom_init(layers[-1])
             layers.append(activation())
             layers.append(nn.Dropout(dropout_rate))
         
         # output layer
         layers.append(nn.Linear(hidden_sizes[-1], 1))
+        custom_init(layers[-1])
         layers.append(nn.ReLU())
         
         self.model = nn.Sequential(*layers)

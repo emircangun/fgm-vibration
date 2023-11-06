@@ -11,10 +11,10 @@ K_NORMS_FILE = os.path.join(os.getcwd(), "model_weights", f"k_norm_values_{EXP}.
 LOSS_FILE = os.path.join(os.getcwd(), "losses", f"train_and_eval_loss_{EXP}.png")
 
 # MODEL PARAMETERS
-HIDDEN_SIZES    = [25, 25, 25]
-# HIDDEN_SIZES    = [30, 30, 30]
+# HIDDEN_SIZES    = [25, 25, 25]
+HIDDEN_SIZES    = [35,35,35]
 ACTIVATION      = nn.ReLU
-DROPOUT_RATE    = 0.1
+DROPOUT_RATE    = 0.0
 
 # OPTIMIZER PARAMETERS
 OPTIMIZER_PARAMS = {
@@ -23,8 +23,8 @@ OPTIMIZER_PARAMS = {
 }
 
 # TRAIN PARAMETERS
-EPOCHS = 100
-TRAIN_TEST_SPLIT_RATIO = 0.01
+EPOCHS = 500
+TRAIN_TEST_SPLIT_RATIO = 0.1
 BATCH_SIZE = 128
 
 
@@ -46,9 +46,9 @@ METHOD_DICT = {
 }
 
 BEAM_TYPE_DICT = {
-    "S-S FG":0,
-    "C-F FG":1,
-    "C-C FG":2
+    "S-S":0,
+    "C-F":1,
+    "C-C":2
 }
 
 L_H_DICT = {

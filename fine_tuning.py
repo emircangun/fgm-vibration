@@ -32,13 +32,13 @@ model = NeuralNetRegressor(
 
 param_grid = {
     ##### for optimizer
-    # 'optimizer__lr': [0.01],
+    'optimizer__lr': [0.01, 0.001],
     # 'optimizer__momentum': [0.9],
 
     ##### for module
-    'module__hidden_sizes':[[20, 20], [25, 25], [30, 30], [20, 20, 20], [25, 25, 25], [30, 30, 30]],
-    # 'module__activation': [nn.ReLU, nn.Tanh, nn.Sigmoid],
-    # 'module__dropout_rate': [0.1]
+    'module__hidden_sizes':[[25, 25, 25], [30, 30, 30]],
+    'module__activation': [nn.ReLU, nn.Tanh, nn.Sigmoid],
+    # 'module__dropout_rate': [0.1, 0.15]
 }
 
 # Create your model, criterion, and grid search object
