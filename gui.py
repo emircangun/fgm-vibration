@@ -9,6 +9,7 @@ from train_and_evaluate import *
 st.set_page_config(layout="centered")
 st.markdown("<h1 style='text-align: center; color: white;'>Frequency Prediction with ANN</h1>", unsafe_allow_html=True)
 
+
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -30,7 +31,7 @@ with col3:
     )
 
 with col4:
-    k_value = st.number_input("p value", value=0.0)
+    k_value = st.number_input("p value", min_value=0.0)
     
 
 clicked = st.button('Predict Frequency')

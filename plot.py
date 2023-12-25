@@ -19,9 +19,9 @@ from train_and_evaluate import *
 
 
 def plot_losses(train_losses, eval_losses):
-    plt.plot(train_losses, label="Train Loss")
+    plt.plot(train_losses, label="Training Loss")
     plt.plot(eval_losses, label="Evaluation Loss")
-    plt.xlabel("# epoch")
+    plt.xlabel("number of epochs")
     plt.ylabel("MSE Loss")
     plt.legend()
     plt.savefig(config.LOSS_FILE)
